@@ -1,0 +1,1 @@
+contact_lastname,contact_firstname,rvp-am,location_num,hotel_name,telephone,cell,email,street_add,city,state,zip,latt,long
