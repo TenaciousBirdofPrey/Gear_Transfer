@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-	
-from inventory import views
+
+import transfers.views
 
 urlpatterns = [
-	url(r'^$', views.index, name = 'index'),
-	url(r'^item/(?P<id>\d+)/', views.item_detail, name = 'item_detail'),
+	url(r'^$', transfers.views.index, name = 'index'),
     url(r'^admin/', include(admin.site.urls)),
 ]
