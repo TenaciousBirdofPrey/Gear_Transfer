@@ -18,7 +18,17 @@ from django.contrib import admin
 
 import transfers.views
 
+#from newboston tut
+from rest_framework.urlpatterns import format_suffix_patterns
+from transfers import views
+
 urlpatterns = [
 	url(r'^$', transfers.views.index, name = 'index'),
     url(r'^admin/', include(admin.site.urls)),
+    
+    url(r'^post_transfer/$', transfers.views.post_transfers, name = 'post_transfers'),
+
+
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

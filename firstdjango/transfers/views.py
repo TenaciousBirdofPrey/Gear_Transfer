@@ -1,11 +1,32 @@
 from django.shortcuts import render
-from django.http import Http404
+from django.http import Http404, HttpResponse
+from django.http import HttpResponseRedirect
 
-from transfers.models import Hotels
 
-# Create your views here.
+from transfers.models import Transfers
+from django.core.serializers import serialize
+
+from .forms import TransfersForm
+
+
+
+#Create your views here.
 def index(request):
-    hotels = Hotels.objects.all()
+	#sends hotel database to map
+    transfers = Transfers.objects.all()
+    form = TransfersForm()
     return render(request,'transfers/index.html',{
-        'hotels':hotels,
+        'transfers': transfers, 'form': form,
     })
+
+def post_transfers(request):
+	form = TransfersForm(request.POST)
+	if form.is_valid():
+		transfer = Transfers(
+			from_loc = form.cleaned_data['from_loc'],
+			to_loc = form.cleaned_data['to_loc'],
+			item = form.cleaned_data['item']
+			)
+		transfer.save()
+	return HttpResponseRedirect('/')
+
