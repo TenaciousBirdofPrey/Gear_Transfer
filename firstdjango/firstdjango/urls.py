@@ -39,7 +39,7 @@ urlpatterns = [
     url(r'^post_transfer/$', transfers.views.post_transfers, name = 'post_transfers'),
     #log in
     url(r'', include('user_accounts.urls')),
-    url(r'^login/$', views.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name = "login"),
+    url(r'^login/$', views.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name = "login"), #not having name = "login" caused error
     url(r'^logout/$', views.logout, {'next_page': '/login'}),  
 
 ]
