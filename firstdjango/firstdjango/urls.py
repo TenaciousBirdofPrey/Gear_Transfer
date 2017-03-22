@@ -22,12 +22,25 @@ import transfers.views
 from rest_framework.urlpatterns import format_suffix_patterns
 from transfers import views
 
+#from login tut
+from django.conf.urls import include, url
+from django.contrib import admin
+
+from django.contrib.auth import views
+
+
+
+from user_accounts.forms import LoginForm
+
 urlpatterns = [
 	url(r'^$', transfers.views.index, name = 'index'),
     url(r'^admin/', include(admin.site.urls)),
     
     url(r'^post_transfer/$', transfers.views.post_transfers, name = 'post_transfers'),
-
+    #log in
+    url(r'', include('user_accounts.urls')),
+    url(r'^login/$', views.login, {'template_name': 'login.html', 'authentication_form': LoginForm}, name = "login"),
+    url(r'^logout/$', views.logout, {'next_page': '/login'}),  
 
 ]
 
