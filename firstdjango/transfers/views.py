@@ -27,6 +27,7 @@ def post_transfers(request):
 			to_loc = form.cleaned_data['to_loc'],
 			item = form.cleaned_data['item'],
 			drop_date = form.cleaned_data['drop_date'],
+			pick_date = form.cleaned_data['pick_date'],
 			)
 		transfer.save()
 

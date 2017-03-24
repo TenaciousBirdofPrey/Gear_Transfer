@@ -40,6 +40,7 @@ tr:nth-child(even) {
     <th>To Location</th>
     <th>Item</th>
     <th>Delivery Date</th>
+    <th>Return Date</th>
   </tr>
 
   {% for transfer in transfers %}
@@ -48,6 +49,7 @@ tr:nth-child(even) {
       <td> {{ transfer.to_loc}}</td>
       <td> {{ transfer.item}}</td>
       <td> {{ transfer.drop_date}}</td>
+       <td> {{ transfer.pick_date}}</td>
     </tr>  
   {% endfor%}
 
