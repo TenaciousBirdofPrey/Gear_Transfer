@@ -13,4 +13,4 @@ class Transfers(models.Model):
 	from_loc = models.CharField(max_length = 10)
 	to_loc = models.CharField(max_length = 10)
 	item = models.CharField(max_length= 20)
-
+	drop_date= models.DateField('delivery date',auto_now=False )

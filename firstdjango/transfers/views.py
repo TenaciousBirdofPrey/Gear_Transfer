@@ -25,8 +25,10 @@ def post_transfers(request):
 		transfer = Transfers(
 			from_loc = form.cleaned_data['from_loc'],
 			to_loc = form.cleaned_data['to_loc'],
-			item = form.cleaned_data['item']
+			item = form.cleaned_data['item'],
+			drop_date = form.cleaned_data['drop_date'],
 			)
 		transfer.save()
+
 	return HttpResponseRedirect('/')
 
